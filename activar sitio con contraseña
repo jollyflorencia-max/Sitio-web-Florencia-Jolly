@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florencia Jolly | Abogada Penalista | Buenos Aires</title>
+    <meta name="description" content="Florencia Jolly, abogada penalista especializada en asesoramiento y defensa en derecho penal. Ciudad de Buenos Aires y Provincia de Buenos Aires. Consulta inicial gratuita.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Pantalla de contraseña */
+        .password-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        
+        .password-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .password-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .password-container h2 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+        }
+        
+        .password-container p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .password-input:focus {
+            outline: none;
+            border-color: #2a5298;
+        }
+        
+        .password-btn {
+            background: #2a5298;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+        
+        .password-btn:hover {
+            background: #1e3c72;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .success-message {
+            color: #27ae60;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Pantalla de Contraseña -->
+    <div class="password-screen" id="passwordScreen">
+        <div class="password-container">
+            <h2>🔒 Acceso Privado</h2>
+            <p>Esta página requiere contraseña para acceder</p>
+            <form id="passwordForm">
+                <input 
+                    type="password" 
+                    class="password-input" 
+                    id="passwordInput" 
+                    placeholder="Ingrese la contraseña"
+                    required
+                >
+                <button type="submit" class="password-btn">
+                    <i class="fas fa-unlock"></i> Acceder
+                </button>
+                <div class="error-message" id="errorMessage" style="display: none;"></div>
+                <div class="success-message" id="successMessage" style="display: none;"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="logo-personalizado.png" alt="Florencia Jolly - Abogada Penalista" class="logo-image">
+                <div class="brand-text">
+                    <span class="brand-name">Florencia Jolly</span>
+                    <span class="brand-title">abogada penalista</span>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="#contacto" class="btn btn-primary">Consulta Gratuita</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="hero-greeting">Hola, soy</span>
+                        <span class="hero-name">Florencia Jolly</span>
+                        <span class="hero-profession">Abogada Penalista</span>
+                    </h1>
+                    <p class="hero-description">
+                        Especializada en derecho penal con años de experiencia defendiendo los derechos 
+                        de mis clientes en Ciudad de Buenos Aires y Provincia de Buenos Aires. 
+                        Mi compromiso es brindar asesoramiento jurídico de calidad y defensa efectiva.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contacto" class="btn btn-primary btn-large">
+                            <i class="fas fa-calendar-alt"></i>
+                            Consulta Gratuita
+                        </a>
+                        <a href="#servicios" class="btn btn-outline btn-large">
+                            <i class="fas fa-briefcase"></i>
+                            Mis Servicios
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-badge">
+                        <i class="fas fa-gavel"></i>
+                        <span>+5 años de experiencia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Conoce más</span>
+                <h2 class="section-title">Sobre Mí</h2>
+                <p class="section-description">
+                    Mi formación y experiencia al servicio de la justicia
+                </p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="about-info">
+                            <h3>Formación Académica</h3>
+                            <p>Abogada graduada con especialización en Derecho Penal y Procesal Penal, constantemente actualizándome en las últimas reformas y tendencias jurídicas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="about-info">
+                            <h3>Experiencia Profesional</h3>
+                            <p>Más de 5 años de experiencia defendiendo casos penales en tribunales de Buenos Aires, con un enfoque personalizado para cada cliente.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="about-info">
+                            <h3>Compromiso Personal</h3>
+                            <p>Cada caso es único y merece una atención personalizada. Trabajo con dedicación y transparencia para obtener los mejores resultados.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Casos Atendidos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Éxito en Casos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Disponibilidad</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Mis Especialidades</span>
+                <h2 class="section-title">Servicios Jurídicos</h2>
+                <p class="section-description">
+                    Asesoramiento integral en derecho penal
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Defensa Penal</h3>
+                    <p>Defensa integral en procesos penales, desde la investigación preparatoria hasta el juicio oral. Estrategias personalizadas para cada caso.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Defensa en libertad</li>
+                        <li><i class="fas fa-check"></i> Revisión de actuaciones</li>
+                        <li><i class="fas fa-check"></i> Recursos y apelaciones</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Asesoramiento Legal</h3>
+                    <p>Consultoría jurídica especializada para evaluar la situación legal y determinar la mejor estrategia de defensa.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Análisis de casos</li>
+                        <li><i class="fas fa-check"></i> Estrategias de defensa</li>
+                        <li><i class="fas fa-check"></i> Opiniones legales</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Representación Legal</h3>
+                    <p>Representación ante tribunales, fiscalías y organismos competentes en toda la jurisdicción de Buenos Aires.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Tribunales de primera instancia</li>
+                        <li><i class="fas fa-check"></i> Cámaras de apelación</li>
+                        <li><i class="fas fa-check"></i> Trámites extrajudiciales</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Asistencia Inmediata</h3>
+                    <p>Atención de emergencia para situaciones que requieren intervención inmediata, disponible las 24 horas.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Detenciones urgentes</li>
+                        <li><i class="fas fa-check"></i> Gestiones inmediatas</li>
+                        <li><i class="fas fa-check"></i> Comunicación permanente</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Contacto</span>
+                <h2 class="section-title">Consultá Sin Compromiso</h2>
+                <p class="section-description">
+                    Estoy aquí para ayudarte. Consultá conmigo y evaluemos tu caso
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Teléfono</h3>
+                        <p>+54 11 6789-1234</p>
+                        <span>Disponible 24/7 para emergencias</span>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>+54 11 6789-1234</p>
+                        <span>Respuesta inmediata</span>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>info@estudiojolly.com</p>
+                        <span>Respuesta en 24 horas</span>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mvglzgey" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="case-type">Tipo de Caso</label>
+                            <select id="case-type" name="case-type" required>
+                                <option value="">Seleccionar tipo de caso</option>
+                                <option value="defensa-penal">Defensa Penal</option>
+                                <option value="asesoramiento">Asesoramiento Legal</option>
+                                <option value="representacion">Representación Legal</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Contame tu situación y como puedo ayudarte..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Consulta
+                        </button>
+                        
+                        <p class="form-disclaimer">
+                            * La consulta inicial es gratuita. Toda la información será tratada de forma confidencial.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logo-personalizado.png" alt="Florencia Jolly" class="footer-logo">
+                    <div class="footer-brand-text">
+                        <span class="footer-name">Florencia Jolly</span>
+                        <span class="footer-title">Abogada Penalista</span>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <p>Especializada en derecho penal con sede en Buenos Aires. Defendiendo derechos y brindando justicia desde hace más de 5 años.</p>
+                    
+                    <div class="footer-contact">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+54 11 6789-1234</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+54 11 6789-1234</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@estudiojolly.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-disclaimer">
+                    <p><strong>Aviso Legal:</strong> Los resultados en casos anteriores no garantizan resultados similares en casos futuros. Cada caso se evalúa de forma individual.</p>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 Estudio Jurídico Florencia Jolly. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    
+    <!-- Script para la contraseña -->
+    <script>
+        // Configuración de contraseña
+        const CORRECT_PASSWORD = "florencia2025"; // CAMBIA ESTA CONTRASEÑA POR LA QUE TÚ QUIERAS
+        
+        // Función para mostrar/ocultar la pantalla de contraseña
+        function checkPassword() {
+            const passwordScreen = document.getElementById('passwordScreen');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (sessionStorage.getItem('passwordAuthenticated') === 'true') {
+                passwordScreen.classList.add('hidden');
+                return;
+            }
+        }
+        
+        // Verificar contraseña al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            checkPassword();
+            
+            const passwordForm = document.getElementById('passwordForm');
+            const passwordInput = document.getElementById('passwordInput');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            passwordForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const enteredPassword = passwordInput.value;
+                
+                if (enteredPassword === CORRECT_PASSWORD) {
+                    sessionStorage.setItem('passwordAuthenticated', 'true');
+                    document.getElementById('passwordScreen').classList.add('hidden');
+                    errorMessage.style.display = 'none';
+                } else {
+                    errorMessage.textContent = '❌ Contraseña incorrecta. Intenta nuevamente.';
+                    errorMessage.style.display = 'block';
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                }
+            });
+        });
+        
+        // Función para cerrar sesión (opcional)
+        function logout() {
+            sessionStorage.removeItem('passwordAuthenticated');
+            location.reload();
+        }
+        
+        // Cerrar sesión con Shift + Esc
+        document.addEventListener('keydown', function(e) {
+            if (e.shiftKey && e.key === 'Escape') {
+                logout();
+            }
+        });
+    </script>
+</body>
+</html>
