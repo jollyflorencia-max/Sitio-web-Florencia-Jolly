@@ -109,7 +109,7 @@ Sitio web profesional especializado para el despacho de **Florencia Jolly**, abo
 ### 📞 **Información de Contacto**
 - **Celular**: +54 11 2239 5123
 - **Email**: jollyflorencia@gmail.com
-- **Dirección**: Av. Corrientes 1234, Piso 8º, C1043ABC Ciudad de Buenos Aires
+- **Cobertura**: Ciudad de Buenos Aires y Provincia de Buenos Aires
 
 ## Archivos del Proyecto
 
